@@ -27,7 +27,7 @@ html {
 }
 
 .all-body {
-    
+    padding-top: 80px;
     margin: 0 auto;
     font-family: 'Roboto';
     font-style: normal;
@@ -163,7 +163,7 @@ p, ul {
     background-color: var(--accent-color);
     border-radius: 2px;
     transform: scaleX(0);
-    transition: 250ms var(--cubic-bezier);
+    transition: transform 250ms var(--cubic-bezier);
 }
 
 .auth-email:hover::after,
@@ -196,6 +196,7 @@ p, ul {
     text-decoration: none;
     color: var(--portfolio-project-p);
     margin-left: 50px;
+    transition: color 250ms var(--cubic-bezier);
 }
 .auth-phone::after {
     content: '';
@@ -206,7 +207,7 @@ p, ul {
     background-color: var(--accent-color);
     border-radius: 2px;
     transform: scaleX(0);
-    transition: 250ms var(--cubic-bezier);
+    transition: transform 250ms var(--cubic-bezier);
 }
 
 .auth-phone:hover::after,
@@ -251,6 +252,7 @@ p, ul {
     line-height: 1.14;
     color: var(--title-text-color);
     text-decoration: none;
+    transition: color 250ms var(--cubic-bezier);
 
 }
 .site-link::after {
@@ -262,7 +264,7 @@ p, ul {
     background-color: var(--accent-color);
     border-radius: 2px;
     transform: scaleX(0);
-    transition: 250ms var(--cubic-bezier);
+    transition: transform 250ms var(--cubic-bezier);
 }
 
 .site-link:hover::after,
@@ -296,13 +298,26 @@ p, ul {
     color: var(--title-text-color);
     text-decoration: none;
     border-radius: 2px;
-    transition: 250ms var(--cubic-bezier);
+    transition: color 250ms var(--cubic-bezier);
 }
 
 
 .site-links.current {
 
     color: var(--accent-color);
+}
+.current {
+    position: relative;
+}
+.current::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--accent-color);
+
 }
 
 .site-links::after {
@@ -334,47 +349,42 @@ p, ul {
     z-index: 3;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.2);
-    transition: opacity 250ms var(--cubic-bezier);
+    transition: opacity 250ms var(--cubic-bezier), visibility 250ms var(--cubic-bezier);
+    perspective: 300px;
 }
 .is-hidden {
     opacity: 0;
+    backface-visibility: hidden;
     pointer-events: none;
+}
+.backdrop.is-hidden .modal{
+    transform: translate(-50%, -50%) scale(0) rotate(360deg);
 }
 .modal {
     position: absolute;
+    width: 500px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-
-    min-height: 528px;
-    min-width: 581px;
-    padding: 15px;
-
-    background-color: var(--hero-button);
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    transform: translate(-50%, -50%) scale(1) rotate(0);
+    width: 500px;
+    min-height: 500px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    transition: transform 250ms var(--cubic-bezier);
 
 }
 .data-close-modal {
     position: absolute;
-    top: 0;
-    right: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    right: 10px;
+    top: 10px;
     width: 30px;
     height: 30px;
-    margin-top: 8px;
-    margin-right: 8px;
-
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: var(--hero-button);
-    color: var(--title-text-color);
+    border: 1px solid #999999;
+    background-color: transparent;
 }
 .modal-icon {
     fill: currentColor;
@@ -435,7 +445,7 @@ p, ul {
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    transition: background-color 250ms var(--cubic-bezier);
+    transition: background-color 250ms var(--cubic-bezier), color 250ms var(--cubic-bezier);
 
 
 }
@@ -687,7 +697,7 @@ p, ul {
     border-radius: 50%;
     background-color: var(--hero-button);
     color: var(--icon-normal);
-    transition: background-color 250ms var(--cubic-bezier);
+    transition: background-color 250ms var(--cubic-bezier), color 250ms var(--cubic-bezier);
 
 }
 .networks-icon {
@@ -744,7 +754,8 @@ p, ul {
     border-radius: 4px;
     color: var(--icon-normal);
     background-color: var(--hero-button);
-    transition: 250ms var(--cubic-bezier);
+    transition: background-color 250ms var(--cubic-bezier), 
+    outline 250ms var(--cubic-bezier), color 250ms var(--cubic-bezier);
     
 }
 .clients-icon {
@@ -888,9 +899,6 @@ p, ul {
     gap: 10px;
 }
 
-.footer-element {
-
-}
 
 .footer-link {
     display: flex;
@@ -902,9 +910,8 @@ p, ul {
     background-color: rgba(255, 255, 255, 0.1);
 
     color: var(--hero-button);
-    transition: background-color 250ms var(--cubic-bezier);
-
-
+    transition: background-color 250ms var(--cubic-bezier), 
+    color 250ms var(--cubic-bezier);
 }
 
 .footer-icon {
@@ -919,9 +926,7 @@ p, ul {
 }
 
 
-
-.port-body {
-    
+.port-body { 
     padding-left: 15px;
     padding-right: 30px;
     font-family: 'Roboto';
@@ -949,14 +954,8 @@ p, ul {
 .button-element:focus {
 box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px 
 rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-    transition: 250ms var(--cubic-bezier);
 }
 
-
-.port-header {
-    
-    
-}
 .button-section {
     padding-top: 94px;
     padding-bottom: 64px;
@@ -978,7 +977,7 @@ rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    transition: background-color 250ms var(--cubic-bezier);
+    transition: background-color 250ms var(--cubic-bezier), color var(--cubic-bezier);
 }
 
 .port-button:hover,
@@ -999,6 +998,9 @@ rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 .product-info {
     text-decoration: none;
 }
+.product .product-actions {
+    transition: opacity 250ms var(--cubic-bezier);
+}
 
 .product:hover .product-actions {
     opacity: 1;
@@ -1012,46 +1014,34 @@ rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 
 }
 
-.product-overlay {
-    position: absolute;
-    text-align: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--before-color);
-    opacity: 0;
-    transform: translateY(100%);
-    transition: 250ms var(--cubic-bezier);
-    text-decoration: none;
-
-}
-
 .product:hover .product-overlay {
     opacity: 1;
     transform: translateY(0);
     text-decoration: none;
 }
 .product-caption {
-    display: flex;
-    text-align: center;
     position: absolute;
-    top: 63px;
-    left: 24px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
     letter-spacing: 0.03em;
+    padding: 40px;
+    background-color: var(--before-color);
 
     color: var(--hero-button);
+    transform: translateY(100%);
+    transition: transform 250ms var(--cubic-bezier);
+    overflow: auto;
 }
+.project-element:hover .product-caption {
+    transform: translateY(0%)
+};
 
-
-
-
-
-.button-section .port-thumb
 
 
 .project-list a {
@@ -1071,7 +1061,7 @@ rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     display: inline-block;
     box-sizing: content-box;
     border: 1px solid #EEEEEE;
-    transition: 250ms var(--cubic-bezier);
+    transition: box-shadow 250ms var(--cubic-bezier);
     text-decoration: none;
     
 }
@@ -1081,13 +1071,6 @@ rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 
-.port-img {
-
-}
-
-.border {
-    
-}
 .project-box {
     padding-top: 20px;
     padding-left: 24px;

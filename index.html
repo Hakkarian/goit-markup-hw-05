@@ -15,6 +15,7 @@
         integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
@@ -69,7 +70,7 @@
         <!--Hero-->
         <section class="hero">
             <div class="container">
-                <h1 class="hero-title">Эффективные решения </br> для вашего бизнеса</h1>
+                <h1 class="hero-title" data-aos="fade-up">Эффективные решения </br> для вашего бизнеса</h1>
                 <button type="button" class="hero-button" data-modal-open>Заказать услугу</button>
             </div>
         </section>
@@ -134,7 +135,7 @@
         <!--Чем мы занимаемся-->
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Чем мы занимаемся</h2>
+                <h2 class="section-title" data-aos="fade-up">Чем мы занимаемся</h2>
                     <ul class="section-list">
                         <li class="section-element">
                             <div class="section-thumb">
@@ -175,7 +176,7 @@
         <!--Наша команда-->
         <section class="command">
             <div class="container">
-                <h2 class="command-title">Наша команда</h2>
+                <h2 class="command-title" data-aos="fade-up">Наша команда</h2>
                     <ul class="command-list">
                         <li class="command-element link">
                             <a class="command-link" href="">
@@ -346,7 +347,7 @@
             </div>
         </section>
         <section class="clients">
-            <h2 class="clients-title">
+            <h2 class="clients-title" data-aos="fade-up">
                 Постоянные клиенты
             </h2>
             <ul class="clients-list list">
@@ -458,6 +459,15 @@
         </div>
 
     </footer>
+            <div class="backdrop is-hidden" data-modal>
+                <div class="modal">
+                    <button type="button" data-modal-close class="data-close-modal">
+                        <svg class="modal-icon" width="11" height="11">
+                            <use href="./images/icons.svg#close"></use>
+                        </svg>
+                        </a>
+                </div>
+            </div>
     <script>
     (() => {
         const refs = {
@@ -478,6 +488,9 @@
         console.log(document.querySelector(".page-header")
         .getBoundingClientRect().height);
     </script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
