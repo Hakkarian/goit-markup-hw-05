@@ -261,15 +261,15 @@ p, ul {
     bottom: 0;
     width: 100%;
     height: 4px;
-    background-color: var(--accent-color);
+    
     border-radius: 2px;
-    transform: scaleX(0);
+    
     transition: transform 250ms var(--cubic-bezier);
 }
 
 .site-link:hover::after,
 .site-link:focus::after {
-    transform: scaleX(1);
+  
 }
 
 .site-link.current {
@@ -313,8 +313,9 @@ p, ul {
     content: '';
     position: absolute;
     bottom: 0px;
+    left: 0px;
     width: 100%;
-    height: 3px;
+    height: 4px;
     border-radius: 3px;
     background-color: var(--accent-color);
 
@@ -393,6 +394,8 @@ p, ul {
 .container {
     width: 1200px;
     margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
 
 
 }
@@ -1030,13 +1033,13 @@ rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     font-size: 18px;
     line-height: 28px;
     letter-spacing: 0.03em;
-    padding: 40px;
+    padding: 35px;
     background-color: var(--before-color);
 
     color: var(--hero-button);
     transform: translateY(100%);
     transition: transform 250ms var(--cubic-bezier);
-    overflow: auto;
+    
 }
 .project-element:hover .product-caption {
     transform: translateY(0%)
@@ -1058,8 +1061,6 @@ rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
  .project-element {
     width: 370px;
     background-color: var(--hero-button);
-    display: inline-block;
-    box-sizing: content-box;
     border: 1px solid #EEEEEE;
     transition: box-shadow 250ms var(--cubic-bezier);
     text-decoration: none;
